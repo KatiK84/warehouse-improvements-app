@@ -12,6 +12,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: warehouse-improvements-app
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
@@ -21,7 +24,7 @@ jobs:
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: warehouse-improvements-app/dist
 
   deploy:
     runs-on: ubuntu-latest
